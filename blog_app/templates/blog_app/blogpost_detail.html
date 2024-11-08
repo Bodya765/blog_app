@@ -1,0 +1,12 @@
+{% load static %}
+
+<h1>{{ blogpost.title }}</h1>
+<p>Written by {{ blogpost.owner.username }} on {{ blogpost.created_at }}</p>
+<p>{{ blogpost.text }}</p>
+
+
+<div>
+    <a href="{% url 'blog_app:update_post' post.slug %}">Редагувати</a>
+    <a href="{% url 'blog_app:delete_post' post.slug %}">Видалити</a>
+    <a href="{% url 'blog_app:all_posts' %}">Повернутися до всіх постів</a>
+</div>

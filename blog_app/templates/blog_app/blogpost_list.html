@@ -1,0 +1,19 @@
+<h1>Всі пости блогу</h1>
+{% load static %}
+
+<ul>
+   {% for post in blogposts %}
+   <li>
+       <a href="{% url 'blog_app:post' post.slug %}">{{ post.title }}</a>
+       {% if post.owner == user %}
+       (
+       <a href="{% url 'blog_app:update_post' post.slug %}">Редагувати</a> |
+       <a href="{% url 'blog_app:delete_post' post.slug %}">Видалити</a>
+       )
+       {% endif %}
+   </li>
+   {% empty %}
+   <li>Немає доступних постів.</li>
+   {% endfor %}
+</ul>
+

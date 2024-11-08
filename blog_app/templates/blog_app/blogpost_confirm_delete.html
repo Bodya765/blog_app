@@ -1,0 +1,8 @@
+{% load static %}
+
+<h2>Ви впевнені, що хочете видалити"{{ object.title }}"?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+<a href="{% url 'blog_app:all_posts' %}">Cancel</a>
